@@ -1,0 +1,27 @@
+<RCC>
+  <qresource prefix="Icons">
+    <file>Icons/upload-.svg</file>
+    <file>Icons/save.png</file>
+    <file>Icons/link-square-svgrepo-com.svg</file>
+    <file>Icons/color-palette-svgrepo-com.svg</file>
+    <file>Icons/book-2-svgrepo-com.svg</file>
+    <file>Icons/clear-svgrepo-com.svg</file>
+    <file>Icons/delete-svgrepo-com.svg</file>
+    <file>Icons/link-square-svgrepo-com.svg</file>
+    <file>Icons/pdf-file-type-svgrepo-com.svg</file>
+    <file>Icons/play-svgrepo-com.svg</file>
+    <file>Icons/rewind-forward-svgrepo-com.svg</file>
+    <file>Icons/upload-minimalistic-svgrepo-com (1).svg</file>
+    <file>Icons/book-2-svgrepo-com.svg</file>
+    <file>Icons/clear-svgrepo-com.svg</file>
+    <file>Icons/link-square-svgrepo-com.svg</file>
+    <file>Icons/pdf-file-type-svgrepo-com.svg</file>
+    <file>Icons/play-svgrepo-com.svg</file>
+    <file>Icons/rewind-forward-svgrepo-com.svg</file>
+    <file>Icons/upload-minimalistic-svgrepo-com (1).svg</file>
+    <file>Icons/book-2-svgrepo-com.svg</file>
+    <file>Icons/upload-minimalistic-svgrepo-com (1).svg</file>
+    <file>Icons/upload-minimalistic-svgrepo-com (1).svg</file>
+    <file>Icons/pdf-file-type-svgrepo-com.svg</file>
+  </qresource>
+</RCC>
