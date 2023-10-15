@@ -28,7 +28,7 @@ The following are some examples of how to use the application:
 * To compare two ECG signals, open the two signal files and display them in the two graphs. You can then link the two graphs so that they display the same time frames, signal speed, and viewport.
 
 ## **Preview**
-![program preview](https://i.ibb.co/2jX3KRh/prototype.gif)
+![program preview](/LOGO/prototype.gif)
 
 ## **Troubleshooting:**
 
