@@ -62,7 +62,7 @@ class MainWindow(QtWidgets.QMainWindow):
         # None will be int, 0 --> all signals, 1 --> the end (each channel individually)
         self.channels_selected = {"graph1": 0, "graph2": 0}
 
-        self.snap_data = []
+        self.snapshoot_data = []
         self.stat_lst = []
 
         self.channelsGraph1.addItem("All Channels")
@@ -1085,6 +1085,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 # ************************************** Snapshoot and PDF Report **************************************
 
+
     def take_snapshot(self):
         index = self.graphSelection.currentIndex()
         graph_items = {
@@ -1097,16 +1098,17 @@ class MainWindow(QtWidgets.QMainWindow):
             screenshot = ImageExporter(graph_item)
             screenshot.parameters()['width'] = 640
             screenshot.parameters()['height'] = 480
-            screenshot_path = f"Screenshot_{len(self.snap_data)}.png"
+            screenshot_path = f"Screenshot_{len(self.snapshoot_data)}.png"
             screenshot.export(screenshot_path)
-            self.snap_data.append(screenshot_path)
+            self.snapshoot_data.append(screenshot_path)
         else:
             QtWidgets.QMessageBox.warning(
                 self, 'Warning', 'Please select a graph')
 
+
     def add_snapshots_to_pdf(self, pdf):
         # Capture the snapshots
-        snap_data = self.snap_data
+        snap_data = self.snapshoot_data
 
         # Iterate over each snapshot
         for graph_image in snap_data:
@@ -1120,8 +1122,8 @@ class MainWindow(QtWidgets.QMainWindow):
             pdf.image(graph_image, x=10, w=190)
             pdf.ln(10)
 
-    def create_report(self, graph_widget, pdf_title="Signal_Report.pdf"):
 
+    def create_report(self, graph_widget, pdf_title="Signal_Report.pdf"):
         self.folder_path, _ = QFileDialog.getSaveFileName(
             None, 'Save the signal file', None, 'PDF Files (*.pdf)')
         if self.folder_path:
@@ -1131,13 +1133,15 @@ class MainWindow(QtWidgets.QMainWindow):
             self.add_title("Signal Report")
             self.add_logos()
             self.add_snapshots_to_pdf(self.pdf)
-            self.add_statistics_table(graph_widget)
+            self.add_statistics_tables()
             self.save_pdf()
+
 
     def add_page_border(self):
         self.pdf.set_draw_color(0, 0, 0)  # Set line color to black
         # Draw a border around the entire page
         self.pdf.rect(1, 1, self.pdf.w, self.pdf.h)
+
 
     def add_title(self, title):
         self.pdf.set_font("times", "B", size=25)
@@ -1145,119 +1149,82 @@ class MainWindow(QtWidgets.QMainWindow):
         # Reset the font to the previous settings
         self.pdf.set_font("times", size=12)
 
+
     def add_logos(self):
         self.pdf.image('LOGO/asset-cairo.png', 2, 3, 40, 40)
         self.pdf.image('LOGO/Asset-SBE.png', 160, 3, 40, 40)
         self.pdf.ln(30)
 
-    def add_statistics_table(self, graph_widget):
-        self.pdf.cell(200, 10, text="Statistics")
-        self.pdf.ln(10)  # Move to the next line
-        graph_name = ""
-        for name, obj in self.lookup.items():
-            if obj == graph_widget:
-                graph_name = name
-        statistics = self.get_signal_statistics(graph_name)
-        mean, std, maximum, minimum = self.access_nested_list_items(statistics)
-        # Get the number of plots
-        # Assuming mean, std, maximum, and minimum have the same length
-        num_plots = min(len(mean), 6)
+
+    def add_statistics_tables(self):
+        graph_names = ["graph1", "graph2"]
+
+        for graph_name in graph_names:
+            statistics = self.get_signal_statistics(graph_name)
+
+            if statistics:
+                self.pdf.cell(200, 10, text=f"Statistics for {graph_name}")
+                self.pdf.ln(10)  # Move to the next line
+
+                mean, std, maximum, minimum = self.access_nested_list_items(statistics)
+
+                self.create_statistics_table(mean, std, maximum, minimum)
+
+
+    def create_statistics_table(self, mean, std, maximum, minimum):
         col_width = 25
+        num_plots = len(mean)
+        
         self.pdf.set_fill_color(211, 211, 211)  # Set a light gray fill color
+
         # Add headers
         self.pdf.cell(col_width, 10, "Metric", border=1, fill=True)
         for i in range(num_plots):
-            self.pdf.cell(col_width, 10, f"Plot {i+1}", border=1, fill=True)
+            self.pdf.cell(col_width, 10, f"Plot {i + 1}", border=1, fill=True)
         self.pdf.ln()
-        # Add Mean row
-        self.pdf.cell(col_width, 10, "Mean", border=1)
-        for m in mean[:num_plots]:
-            self.pdf.cell(col_width, 10, f"{m: .4f}", border=1)
-        self.pdf.ln()
-        # Add Standard Deviation row
-        self.pdf.cell(col_width, 10, "Std", border=1)
-        for s in std[:num_plots]:
-            self.pdf.cell(col_width, 10, f"{s: .4f}", border=1)
-        self.pdf.ln()
-        # Add Maximum row
-        self.pdf.cell(col_width, 10, "Maximum", border=1)
-        for mx in maximum[:num_plots]:
-            self.pdf.cell(col_width, 10, f"{mx: .3f}", border=1)
-        self.pdf.ln()
-        # Add Minimum row
-        self.pdf.cell(col_width, 10, "Minimum", border=1)
-        for mn in minimum[:num_plots]:
-            self.pdf.cell(col_width, 10, f"{mn: .3f}", border=1)
-        self.pdf.ln()
-        # Check if there are more plots to create a new table
-        if len(mean) > 6:
-            self.pdf.ln(15)  # Create a new page
-            self.pdf.cell(200, 10, text="Continuation of Statistics")
+
+        metrics = ["Mean", "Std", "Maximum", "Minimum"]
+        data_lists = [mean, std, maximum, minimum]
+
+        for metric, data_list in zip(metrics, data_lists):
+            self.pdf.cell(col_width, 10, metric, border=1)
+            for value in data_list:
+                self.pdf.cell(col_width, 10, f"{value: .4f}", border=1)
             self.pdf.ln(10)
-            # Create a new table for the remaining data
-            remaining_plots = num_plots - 6
-            self.pdf.cell(col_width, 10, "Metric", border=1, fill=True)
-            for J in range(remaining_plots):
-                self.pdf.cell(col_width, 10, f"Plot {
-                              num_plots + J + 1}", border=1, fill=True)
-            self.pdf.ln()
-            # Add Mean row
-            self.pdf.cell(col_width, 10, "Mean", border=1)
-            for m in mean[6:]:
-                self.pdf.cell(col_width, 10, f"{m: .4f}", border=1)
-            self.pdf.ln()
-            # Add Standard Deviation row
-            self.pdf.cell(col_width, 10, "Std", border=1)
-            for s in std[6:]:
-                self.pdf.cell(col_width, 10, f"{s: .4f}", border=1)
-            self.pdf.ln()
-            # Add Maximum row
-            self.pdf.cell(col_width, 10, "Maximum", border=1)
-            for mx in maximum[6:]:
-                self.pdf.cell(col_width, 10, f"{mx: .3f}", border=1)
-            self.pdf.ln()
-            # Add Minimum row
-            self.pdf.cell(col_width, 10, "Minimum", border=1)
-            for mn in minimum[6:]:
-                self.pdf.cell(col_width, 10, f"{mn: .3f}", border=1)
-            self.pdf.ln()
 
-    def save_pdf(self):
-        self.pdf.output(str(self.folder_path))
-        # This message appears when the PDF is EXPORTED
-        QMessageBox.information(self, 'Done', 'PDF has been created')
-        for i in range(len(self.snap_data)):
-            os.remove(f"Screenshot_{i}.png")
-
-    def access_nested_list_items(self, nested_list):
-        mean_list = []
-        std_list = []
-        max_list = []
-        min_list = []
-
-        for sublist in nested_list:
-            if len(sublist) == 4:
-                mean = sublist[0]
-                std = sublist[1]
-                max = sublist[2]
-                min = sublist[3]
-
-                mean_list.append(mean)
-                std_list.append(std)
-                max_list.append(max)
-                min_list.append(min)
-
-        return mean_list, std_list, max_list, min_list
 
     def get_signal_statistics(self, graph_widget: str):
+        statistics = []
         for signal in self.signals[graph_widget]:
             _, data = signal[0]
             mean = np.mean(data)
             std = np.std(data)
             maximum = np.max(data)
             minimum = np.min(data)
-            self.stat_lst.append([mean, std, maximum, minimum])
-        return self.stat_lst
+            statistics.append([mean, std, maximum, minimum])
+        return statistics
+    
+
+    def access_nested_list_items(self, nested_list):
+        mean_list, std_list, max_list, min_list = [], [], [], []
+
+        for sublist in nested_list:
+            if len(sublist) == 4:
+                mean_list.append(sublist[0])
+                std_list.append(sublist[1])
+                max_list.append(sublist[2])
+                min_list.append(sublist[3])
+
+        return mean_list, std_list, max_list, min_list
+
+
+    def save_pdf(self):
+        self.pdf.output(str(self.folder_path))
+        # This message appears when the PDF is EXPORTED
+        QMessageBox.information(self, 'Done', 'PDF has been created')
+        for i in range(len(self.snapshoot_data)):
+            os.remove(f"Screenshot_{i}.png")
+
 
     def generate_signal_report(self):
         if isinstance(self.current_graph, list):
@@ -1267,10 +1234,9 @@ class MainWindow(QtWidgets.QMainWindow):
         else:
             # Generate a report for the current graph
             self.create_report(self.current_graph)
-        # self.snap_data = []
-        # self.stat_lst = []
-
-
+        self.snapshoot_data = []
+        self.stat_lst = []
+        
 def main():
     app = QtWidgets.QApplication(sys.argv)
     main = MainWindow()
