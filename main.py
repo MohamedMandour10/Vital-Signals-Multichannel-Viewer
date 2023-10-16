@@ -169,7 +169,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
 # ************************************** HELPER FUNCTIONS **************************************
 
-
     def button1_clicked(self):
         self.transfer_button1_state = True
 
@@ -319,11 +318,11 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.set_icon("Icons/play-svgrepo-com.svg")
             # graph2 is playing graph1 is playing
             elif self.is_playing[1]["is_playing"] and self.is_playing[0]["is_playing"]:
-                self.playButton.setText('pause')
+                self.playButton.setText('Pause')
                 self.set_icon("Icons/pause.svg")
             # graph2 is not playing and graph1 is playing
             elif self.is_playing[1]["is_playing"] == False and self.is_playing[0]["is_playing"]:
-                self.playButton.setText('pause')
+                self.playButton.setText('Pause')
                 self.set_icon("Icons/pause.svg")
 
         elif index == 1:
@@ -331,7 +330,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.speedSlider.setValue(self.data_index["graph2"])
             # graph2 is playing and graph1 is not
             if self.is_playing[1]["is_playing"] and self.is_playing[0]["is_playing"] == False:
-                self.playButton.setText('pause')
+                self.playButton.setText('Pause')
                 self.set_icon("Icons/pause.svg")
             # graph2 is not playing and graph1 is not
             elif self.is_playing[1]["is_playing"] == False and self.is_playing[0]["is_playing"] == False:
@@ -339,7 +338,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.set_icon("Icons/play-svgrepo-com.svg")
             # graph2 is playing graph1 is playing
             elif self.is_playing[1]["is_playing"] and self.is_playing[0]["is_playing"]:
-                self.playButton.setText('pause')
+                self.playButton.setText('Pause')
                 self.set_icon("Icons/pause.svg")
             # graph2 is not playing and graph1 is playing
             elif self.is_playing[1]["is_playing"] == False and self.is_playing[0]["is_playing"]:
@@ -382,6 +381,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
 # ************************************** Plot Graphs **************************************
+
 
     def browse(self):
         file_filter = "Raw Data (*.csv *.txt *.xls *.hea *.dat *.rec)"
@@ -652,7 +652,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
 # ************************************** Transfer signals **************************************
-
 
     def update_after_transfer(self, curr_graph, i, item_names):
         if i == 0:
@@ -990,6 +989,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 # ************************************** Colors, Labels, and Legends **************************************
 
+
     def change_channel_label(self):
         graph_name = self.get_graph_name()
         if graph_name == 'graph1':
@@ -1030,7 +1030,7 @@ class MainWindow(QtWidgets.QMainWindow):
         signals_info[current_index][2] = legend_text
 
         # Initialize legends for all channels
-        self.initialize_legends(graph_name)
+        # self.initialize_legends(graph_name)
 
         addLabel.clear()
 
@@ -1085,7 +1085,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
 # ************************************** Snapshoot and PDF Report **************************************
 
-
     def take_snapshot(self):
         index = self.graphSelection.currentIndex()
         graph_items = {
@@ -1105,7 +1104,6 @@ class MainWindow(QtWidgets.QMainWindow):
             QtWidgets.QMessageBox.warning(
                 self, 'Warning', 'Please select a graph')
 
-
     def add_snapshots_to_pdf(self, pdf):
         # Capture the snapshots
         snap_data = self.snapshoot_data
@@ -1122,7 +1120,6 @@ class MainWindow(QtWidgets.QMainWindow):
             pdf.image(graph_image, x=10, w=190)
             pdf.ln(10)
 
-
     def create_report(self, graph_widget, pdf_title="Signal_Report.pdf"):
         self.folder_path, _ = QFileDialog.getSaveFileName(
             None, 'Save the signal file', None, 'PDF Files (*.pdf)')
@@ -1136,12 +1133,10 @@ class MainWindow(QtWidgets.QMainWindow):
             self.add_statistics_tables()
             self.save_pdf()
 
-
     def add_page_border(self):
         self.pdf.set_draw_color(0, 0, 0)  # Set line color to black
         # Draw a border around the entire page
         self.pdf.rect(1, 1, self.pdf.w, self.pdf.h)
-
 
     def add_title(self, title):
         self.pdf.set_font("times", "B", size=25)
@@ -1149,12 +1144,10 @@ class MainWindow(QtWidgets.QMainWindow):
         # Reset the font to the previous settings
         self.pdf.set_font("times", size=12)
 
-
     def add_logos(self):
         self.pdf.image('LOGO/asset-cairo.png', 2, 3, 40, 40)
         self.pdf.image('LOGO/Asset-SBE.png', 160, 3, 40, 40)
         self.pdf.ln(30)
-
 
     def add_statistics_tables(self):
         graph_names = ["graph1", "graph2"]
@@ -1166,15 +1159,15 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.pdf.cell(200, 10, text=f"Statistics for {graph_name}")
                 self.pdf.ln(10)  # Move to the next line
 
-                mean, std, maximum, minimum = self.access_nested_list_items(statistics)
+                mean, std, maximum, minimum = self.access_nested_list_items(
+                    statistics)
 
                 self.create_statistics_table(mean, std, maximum, minimum)
-
 
     def create_statistics_table(self, mean, std, maximum, minimum):
         col_width = 25
         num_plots = len(mean)
-        
+
         self.pdf.set_fill_color(211, 211, 211)  # Set a light gray fill color
 
         # Add headers
@@ -1192,7 +1185,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.pdf.cell(col_width, 10, f"{value: .4f}", border=1)
             self.pdf.ln(10)
 
-
     def get_signal_statistics(self, graph_widget: str):
         statistics = []
         for signal in self.signals[graph_widget]:
@@ -1203,7 +1195,6 @@ class MainWindow(QtWidgets.QMainWindow):
             minimum = np.min(data)
             statistics.append([mean, std, maximum, minimum])
         return statistics
-    
 
     def access_nested_list_items(self, nested_list):
         mean_list, std_list, max_list, min_list = [], [], [], []
@@ -1217,14 +1208,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
         return mean_list, std_list, max_list, min_list
 
-
     def save_pdf(self):
         self.pdf.output(str(self.folder_path))
         # This message appears when the PDF is EXPORTED
         QMessageBox.information(self, 'Done', 'PDF has been created')
         for i in range(len(self.snapshoot_data)):
             os.remove(f"Screenshot_{i}.png")
-
 
     def generate_signal_report(self):
         if isinstance(self.current_graph, list):
@@ -1236,7 +1225,8 @@ class MainWindow(QtWidgets.QMainWindow):
             self.create_report(self.current_graph)
         self.snapshoot_data = []
         self.stat_lst = []
-        
+
+
 def main():
     app = QtWidgets.QApplication(sys.argv)
     main = MainWindow()

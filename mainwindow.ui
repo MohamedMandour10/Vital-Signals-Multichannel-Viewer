@@ -588,7 +588,7 @@ background-color: #1c2973;
              </property>
              <property name="icon">
               <iconset>
-               <normaloff>:/Icons/Icons/transfer-vertical-svgrepo-com.svg</normaloff>:/Icons/Icons/transfer-vertical-svgrepo-com.svg</iconset>
+               <normaloff>Icons/transfer-vertical-svgrepo-com.svg</normaloff>Icons/transfer-vertical-svgrepo-com.svg</iconset>
              </property>
              <property name="iconSize">
               <size>
@@ -1059,7 +1059,7 @@ background-color: #1c2973;
              </property>
              <property name="icon">
               <iconset>
-               <normaloff>:/Icons/Icons/transfer-vertical-svgrepo-com.svg</normaloff>:/Icons/Icons/transfer-vertical-svgrepo-com.svg</iconset>
+               <normaloff>Icons/transfer-vertical-svgrepo-com.svg</normaloff>Icons/transfer-vertical-svgrepo-com.svg</iconset>
              </property>
              <property name="iconSize">
               <size>
