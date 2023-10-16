@@ -169,6 +169,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 # ************************************** HELPER FUNCTIONS **************************************
 
+
     def button1_clicked(self):
         self.transfer_button1_state = True
 
@@ -309,37 +310,41 @@ class MainWindow(QtWidgets.QMainWindow):
             self.current_graph = self.graph1
             self.speedSlider.setValue(self.data_index["graph1"])
             # graph2 is playing and graph1 is not
-            if self.is_playing[1]["is_playing"] and self.current_graph != [self.graph1, self.graph2]:
+            if self.is_playing[1]["is_playing"] and self.is_playing[0]["is_playing"] == False:
                 self.playButton.setText('Play')
                 self.set_icon("Icons/play-svgrepo-com.svg")
             # graph2 is not playing and graph1 is not
-            elif self.is_playing[1]["is_playing"] == False and self.current_graph != [self.graph1, self.graph2]:
+            elif self.is_playing[1]["is_playing"] == False and self.is_playing[0]["is_playing"] == False:
                 self.playButton.setText('Play')
                 self.set_icon("Icons/play-svgrepo-com.svg")
             # graph2 is playing graph1 is playing
-            elif self.is_playing[0]["is_playing"] and self.current_graph != [self.graph1, self.graph2]:
+            elif self.is_playing[1]["is_playing"] and self.is_playing[0]["is_playing"]:
                 self.playButton.setText('pause')
                 self.set_icon("Icons/pause.svg")
             # graph2 is not playing and graph1 is playing
-            elif self.is_playing[0]["is_playing"] == False and self.current_graph != [self.graph1, self.graph2]:
+            elif self.is_playing[1]["is_playing"] == False and self.is_playing[0]["is_playing"]:
                 self.playButton.setText('pause')
                 self.set_icon("Icons/pause.svg")
 
         elif index == 1:
-            self.current_graph = self.graph2
+            self.current_graph = self.graph2  # to graph2
             self.speedSlider.setValue(self.data_index["graph2"])
-            if self.is_playing[0]["is_playing"] and self.current_graph != [self.graph1, self.graph2]:
-                self.playButton.setText('Play')
-                self.set_icon("Icons/play-svgrepo-com.svg")
-            elif self.is_playing[0]["is_playing"] == False and self.current_graph != [self.graph1, self.graph2]:
-                self.playButton.setText('Play')
-                self.set_icon("Icons/play-svgrepo-com.svg")
-            elif self.is_playing[1]["is_playing"] and self.current_graph != [self.graph1, self.graph2]:
+            # graph2 is playing and graph1 is not
+            if self.is_playing[1]["is_playing"] and self.is_playing[0]["is_playing"] == False:
                 self.playButton.setText('pause')
                 self.set_icon("Icons/pause.svg")
-            elif self.is_playing[1]["is_playing"] == False and self.current_graph != [self.graph1, self.graph2]:
+            # graph2 is not playing and graph1 is not
+            elif self.is_playing[1]["is_playing"] == False and self.is_playing[0]["is_playing"] == False:
+                self.playButton.setText('Play')
+                self.set_icon("Icons/play-svgrepo-com.svg")
+            # graph2 is playing graph1 is playing
+            elif self.is_playing[1]["is_playing"] and self.is_playing[0]["is_playing"]:
                 self.playButton.setText('pause')
                 self.set_icon("Icons/pause.svg")
+            # graph2 is not playing and graph1 is playing
+            elif self.is_playing[1]["is_playing"] == False and self.is_playing[0]["is_playing"]:
+                self.playButton.setText('Play')
+                self.set_icon("Icons/play-svgrepo-com.svg")
 
         elif index == 2:
             self.current_graph = [self.graph1, self.graph2]
@@ -377,7 +382,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
 # ************************************** Plot Graphs **************************************
-
 
     def browse(self):
         file_filter = "Raw Data (*.csv *.txt *.xls *.hea *.dat *.rec)"
@@ -649,6 +653,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
 # ************************************** Transfer signals **************************************
 
+
     def update_after_transfer(self, curr_graph, i, item_names):
         if i == 0:
             self.get_curr_graph_channels().clear()
@@ -859,27 +864,27 @@ class MainWindow(QtWidgets.QMainWindow):
         # Scale the viewbox around the specified center point
         if (self.current_graph == self.graph1):
             view_box = self.graph1.plotItem.getViewBox()
-            view_box.scaleBy((0.5, 1))
+            view_box.scaleBy((0.5, 0.5))
         elif (self.current_graph == self.graph2):
             view_box = self.graph2.plotItem.getViewBox()
-            view_box.scaleBy((0.5, 1))
+            view_box.scaleBy((0.5, 0.5))
         else:  # link mode
             for graph in self.current_graph:
                 view_box = graph.plotItem.getViewBox()
-                view_box.scaleBy((0.5, 1))
+                view_box.scaleBy((0.5, 0.5))
 
     def zoom_out(self):
         # Scale the viewbox around the specified center point
         if (self.current_graph == self.graph1):
             view_box = self.graph1.plotItem.getViewBox()
-            view_box.scaleBy((1.5, 1))
+            view_box.scaleBy((1.5, 1.5))
         elif (self.current_graph == self.graph2):
             view_box = self.graph2.plotItem.getViewBox()
-            view_box.scaleBy((1.5, 1))
+            view_box.scaleBy((1.5, 1.5))
         else:  # link mode
             for graph in self.current_graph:
                 view_box = graph.plotItem.getViewBox()
-                view_box.scaleBy((1.5, 1))
+                view_box.scaleBy((1.5, 1.5))
 
     def rewind_graph(self):
         if (self.current_graph == self.graph1):
@@ -985,7 +990,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
 # ************************************** Colors, Labels, and Legends **************************************
 
-
     def change_channel_label(self):
         graph_name = self.get_graph_name()
         if graph_name == 'graph1':
@@ -1080,7 +1084,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
 
 # ************************************** Snapshoot and PDF Report **************************************
-
 
     def take_snapshot(self):
         index = self.graphSelection.currentIndex()
