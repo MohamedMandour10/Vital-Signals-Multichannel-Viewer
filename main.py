@@ -592,9 +592,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def plot_unique_linked_signal(self):
         if len(self.signals[self.get_graph_name()]) == 1:  # first plot in the graph
-            # pen = pg.mkPen((self.generate_random_color()))
-            # self.signals_info[self.get_graph_name()][0][1] =
-            # pen = self.signals_info[self.get_graph_name()][0][1]
             pen = self.channels_color[self.get_graph_name()][0]
             self.data_x = self.time[:50]
             self.data_y = self.data[:50]
@@ -602,8 +599,6 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.data_x, self.data_y, pen=pen)
             self.signals_lines[self.get_graph_name()].append(curve)
         else:  # other plots in the graph have been added
-            # pen = pg.mkPen((self.generate_random_color()))
-            # self.channels_color[self.get_graph_name()].append(pen)
             curr_index = len(self.signals[self.get_graph_name()]) - 1
             pen = self.channels_color[self.get_graph_name()][curr_index]
 
@@ -641,6 +636,8 @@ class MainWindow(QtWidgets.QMainWindow):
 
             if self.signals_info[graph][i][0]:  # error
                 signal_line.setData(X, Y, visible=True)
+                last_data = self.get_last_data_point(graph)[0]
+                self.lookup[graph].setLimits(xMin=0, xMax=last_data)
             else:
                 signal_line.setData([], [], visible=False)
 
@@ -662,10 +659,6 @@ class MainWindow(QtWidgets.QMainWindow):
             for i in range(len(self.signals[curr_graph])):
                 self.signals[curr_graph][i][1] = self.signals[curr_graph][0][1]
             for i, signal in enumerate(self.signals[curr_graph]):
-                # if self.signals_info[curr_graph][i][1] == None:  # temp code
-                # pen = pg.mkPen((self.generate_random_color()))
-                # else:
-                # pen = self.signals_info[curr_graph][i][1]
                 pen = self.channels_color[curr_graph][i]
                 (time, data), end_ind = signal
                 X = time[:end_ind]
@@ -690,10 +683,6 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.signals[item["graph"]
                                      ][i][1] = self.signals[item["graph"]][0][1]
                     for i, signal in enumerate(self.signals[item["graph"]]):
-                        # if self.signals_info[item["graph"]][i][1] == None:  # temp code
-                        #     pen = pg.mkPen(
-                        #         (self.generate_random_color()))  # bug
-                        # else:
                         pen = self.channels_color[item["graph"]][i]
                         (time, data), end_ind = signal
                         X = time[:end_ind]
@@ -962,33 +951,58 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.is_playing[0]["is_playing"] = False
                 self.playButton.setText('Play')
                 self.set_icon("Icons/play-svgrepo-com.svg")
+                last_data = self.get_last_data_point("graph1")[0]
+                self.graph1.setLimits(xMin=0)
+                self.graph1.setLimits(yMin=-0.5, yMax=1)
             else:
                 self.is_playing[0]["is_playing"] = True
                 self.playButton.setText('Pause')
                 self.set_icon("Icons/pause.svg")
+
         elif self.current_graph == self.graph2:
             if self.is_playing[1]["is_playing"]:
                 self.is_playing[1]["is_playing"] = False
                 self.playButton.setText('Play')
                 self.set_icon("Icons/play-svgrepo-com.svg")
+                last_data = self.get_last_data_point("graph2")[0]
+                self.graph2.setLimits(xMin=0, xMax=last_data)
+                self.graph2.setLimits(yMin=-0.5, yMax=1)
+
             else:
                 self.is_playing[1]["is_playing"] = True
                 self.playButton.setText('Pause')
                 self.set_icon("Icons/pause.svg")
+                # Allow free panning when playing
+                # self.set_panning_limits(self.graph2, False)
+
         else:  # link mode
             for graph in self.is_playing:
                 if graph["is_playing"]:
                     graph["is_playing"] = False
                     self.playButton.setText('Play')
                     self.set_icon("Icons/play-svgrepo-com.svg")
+                    # Restrict panning beyond the last data point when pausing
+                    # self.set_panning_limits(self.current_graph, True)
+                    self.graph1.setLimits(xMin=0, xMax=last_data)
+                    self.graph2.setLimits(xMin=0, xMax=last_data)
+                    self.graph1.setLimits(yMin=-0.5, yMax=1)
+                    self.graph2.setLimits(yMin=-0.5, yMax=1)
                 else:
                     graph["is_playing"] = True
                     self.playButton.setText('Pause')
                     self.set_icon("Icons/pause.svg")
+                    # Allow free panning when playing
+                    # self.set_panning_limits(self.current_graph, False)
 
+    def get_last_data_point(self, graph):
+        if graph in self.signals and self.signals[graph]:
+            last_signal = self.signals[graph][-1]
+            (time, data), end_ind = last_signal
+            if end_ind < len(time) and end_ind < len(data):
+                return (time[end_ind], data[end_ind])
+        return None
 
 # ************************************** Colors, Labels, and Legends **************************************
-
 
     def change_channel_label(self):
         graph_name = self.get_graph_name()
@@ -1015,9 +1029,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
         index = channelsGraph.currentIndex()
 
-        if index == 0:
-            self.show_error_message("No channel selected")
-            return
+        # if index == 0:
+        #     self.show_error_message("No channel selected")
+        #     return
 
         legend_text = addLabel.text()
 
@@ -1083,7 +1097,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     signals_lines[selected_channel_index - 1].setPen(new_color)
 
 
-# ************************************** Snapshoot and PDF Report **************************************
+# ************************************** Snapshot and PDF Report **************************************
 
     def take_snapshot(self):
         index = self.graphSelection.currentIndex()
