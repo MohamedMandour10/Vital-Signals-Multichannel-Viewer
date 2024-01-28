@@ -28,6 +28,16 @@ The following are some examples of how to use the application:
 * To compare two ECG signals, open the two signal files and display them in the two graphs. You can then link the two graphs so that they display the same time frames, signal speed, and viewport.
   
 ## Demo
+### Part1:
+
+
+https://github.com/MohamedMandour10/Vital-Signals-Multichannel-Viewer/assets/115044826/d7bee388-fb1d-48eb-82e1-ebd08e3630c4
+
+
+### Part2:
+
+
+https://github.com/MohamedMandour10/Vital-Signals-Multichannel-Viewer/assets/115044826/05d37c71-8250-4275-81c5-df44d84b6afe
 
 
 ## **Troubleshooting:**
