@@ -54,7 +54,7 @@ If you are having problems with the application, please consult the following tr
   pip install -r requirements.txt
   ```
 ```
-python main.py
+python main (1).py
 ```
 ## Contributors <a name = "Contributors"></a>
 <table>
