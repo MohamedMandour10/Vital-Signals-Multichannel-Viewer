@@ -1,5 +1,5 @@
-PyQt6==None
-wfdb==None
-numpy==None
-pyqtgraph==None
-fpdf2==None
+PyQt6==6.2.1
+wfdb==3.5.0
+numpy==1.21.2
+pyqtgraph==0.12.1
+fpdf2==2.4.0
