@@ -1,0 +1,1857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1182</width>
+    <height>829</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+    background-color:  rgb(245, 245, 245); /* Set the background color */
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_7">
+    <property name="leftMargin">
+     <number>15</number>
+    </property>
+    <property name="topMargin">
+     <number>15</number>
+    </property>
+    <property name="rightMargin">
+     <number>15</number>
+    </property>
+    <property name="bottomMargin">
+     <number>15</number>
+    </property>
+    <item row="0" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QFrame" name="frame">
+          <property name="minimumSize">
+           <size>
+            <width>350</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:black;
+border-radius:25px;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout">
+           <property name="verticalSpacing">
+            <number>10</number>
+           </property>
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <property name="spacing">
+              <number>25</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="importButton">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>Upload File</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    appearance: button;
+    background: rgba(74, 74, 74, 0);
+    border-radius: 20px;
+	image: url(NewIcons/upload-file-svgrepo-com.png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:hover {
+	image: url(NewIcons/upload-black.png);
+    background-color: rgb(255, 255, 255);
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:pressed {
+    background-color: #A0A0A0; /* Set the desired color when the button is pressed */
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="snapShoot_Button">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>snapshot</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    appearance: button;
+    background: rgba(74, 74, 74, 0);
+    border-radius: 20px;
+	
+	image: url(NewIcons/screenshot-svgrepo-com.png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 255, 255);
+	image: url(NewIcons//screenshot-black.png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+QPushButton:pressed {
+    background-color: #A0A0A0; /* Set the desired color when the button is pressed */
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="reportButton">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>create pdf</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    appearance: button;
+    background: rgba(74, 74, 74, 0);
+    border-radius: 20px;
+	
+	image: url(NewIcons/note-1-svgrepo-com.png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 255, 255);
+	
+	image: url(NewIcons/note-1-balck.png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+QPushButton:pressed {
+    background-color: #A0A0A0; /* Set the desired color when the button is pressed */
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="clearButton">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>clear graph</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    appearance: button;
+    background: rgba(74, 74, 74, 0);
+    border-radius: 20px;
+	
+	image: url(NewIcons/clear-circle-svgrepo-com.png);
+	icon-size: 40px; /* Set the desired icon size */
+	color:white;
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 255, 255);
+	
+	image: url(NewIcons/clear-circle-black.png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+QPushButton:pressed {
+    background-color: #A0A0A0; /* Set the desired color when the button is pressed */
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_3">
+          <property name="minimumSize">
+           <size>
+            <width>350</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>400</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:black;
+border-radius:25px;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <property name="verticalSpacing">
+            <number>10</number>
+           </property>
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <property name="spacing">
+              <number>25</number>
+             </property>
+             <item>
+              <widget class="QPushButton" name="playButton">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>play</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    appearance: button;
+    background: rgba(74, 74, 74, 0);
+    border-radius: 20px;
+	
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 255, 255);
+	
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:pressed {
+    background-color: #A0A0A0; /* Set the desired color when the button is pressed */
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="rewindButton">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>rewind</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    appearance: button;
+    background: rgba(74, 74, 74, 0);
+    border-radius: 20px;
+	
+	image: url(NewIcons/rewind-forward-svgrepo-com (1).png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 255, 255);
+	
+	image: url(NewIcons/rewind-forward-svgrepo-com.png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:pressed {
+    background-color: #A0A0A0; /* Set the desired color when the button is pressed */
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="zoomOut">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>zoom out</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    appearance: button;
+    background: rgba(74, 74, 74, 0);
+    border-radius: 20px;
+	
+	image: url(NewIcons/minus-circle-svgrepo-com (1).png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 255, 255);
+	
+	image: url(NewIcons/minus-circle-svgrepo-com.png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:pressed {
+    background-color: #A0A0A0; /* Set the desired color when the button is pressed */
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="zoomIn">
+               <property name="minimumSize">
+                <size>
+                 <width>60</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>50</width>
+                 <height>70</height>
+                </size>
+               </property>
+               <property name="toolTip">
+                <string>zoom in</string>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+    appearance: button;
+    background: rgba(74, 74, 74, 0);
+    border-radius: 20px;
+	
+	image: url(NewIcons/plus-circle-svgrepo-com (1).png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:hover {
+    background-color: rgb(255, 255, 255);
+	
+	image: url(NewIcons/plus-circle-svgrepo-com.png);
+	icon-size: 40px; /* Set the desired icon size */
+}
+
+QPushButton:pressed {
+    background-color: #A0A0A0; /* Set the desired color when the button is pressed */
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_4">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color:black;
+border-radius:25px;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <property name="leftMargin">
+            <number>20</number>
+           </property>
+           <property name="rightMargin">
+            <number>20</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QSlider" name="speedSlider">
+             <property name="styleSheet">
+              <string notr="true">QSlider {
+background-color: transparent;
+height: 10px; /* Set the height of the track */
+margin:0 0;
+}
+
+/* Style for the groove (track) */
+QSlider::groove {
+background: rgb(202, 202, 202); /* Color of the track */
+border: 0px solid #999; /* Border of the track */
+height: 5px; /* Set the height of the track */
+border-radius: 2px; /* Round the corners of the track */
+margin:0 0;
+}
+
+/* Style for the slider handle (thumb) */
+QSlider::handle {
+background:#ffffff; /* Color of the handle */
+width: 20px; /* Width of the handle */
+height: 30px; /* Height of the handle */
+margin: -5px 0; /* Negative margin to center the handle vertically */
+border-radius: 5px;
+border: none;
+}
+
+/* Style for the slider handle when pressed */
+QSlider::handle:pressed {
+background: #f19252; /* Color of the handle when pressed */
+border: 1px solid rgb(147, 89, 50); /* Border of the handle when pressed */
+}</string>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0" rowspan="3">
+     <widget class="QFrame" name="frame_5">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame{
+background-color:white;
+border-radius:30px;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_4">
+       <property name="verticalSpacing">
+        <number>20</number>
+       </property>
+       <item row="1" column="0">
+        <widget class="Line" name="line">
+         <property name="styleSheet">
+          <string notr="true">/* Line style */
+
+  /* Set the width of the line */
+  width: 20px;
+
+  /* Set the height of the line */
+  height: 5px;
+
+  /* Set the background color of the line */
+  background-color: rgb(193, 193, 193);
+
+  /* Set the border of the line */
+  border: 10px;
+
+  /* Set the border radius of the line */
+  border-radius:5px;
+
+
+
+</string>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Overpass Black</family>
+             <pointsize>16</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Graph1 Channels</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="hideList1">
+           <property name="styleSheet">
+            <string notr="true">QListWidget {
+    background-color:  rgb(245, 245, 245);  /* Background color of the list widget */
+    /*border: 1px solid #c0c0c0; /* Border color and width */
+    padding: 5px; /* Padding around the list items */
+	border-radius: 15px;
+	font-family: &quot;Overpass&quot;, sans-serif; /* Set the desired font-family */
+	font-weight:bold;
+	font-size:16px;
+}
+
+QListWidget::item {
+    background-color: rgb(245, 245, 245); /* Background color of each list item */
+    padding: 5px; /* Padding inside each list item */
+    border-bottom: 1px solid #c0c0c0; /* Separator between list items */
+    border-radius: 15px; /* Border radius for rounded corners */
+	color: rgb(0, 0, 0);
+}
+
+
+QListWidget::item:selected {
+    background-color:#A0A0A0; /* Background color of selected item */
+    color: #ffffff; /* Text color of selected item */
+	border-radius: 10px;
+}
+
+QListWidget::item:hover {
+    background-color: #e0e0e0; /* Background color when hovering over an item */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="4" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Overpass Black</family>
+             <pointsize>16</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Graph2 Channels</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="hideList2">
+           <property name="styleSheet">
+            <string notr="true">QListWidget {
+    background-color:  rgb(245, 245, 245);  /* Background color of the list widget */
+    /*border: 1px solid #c0c0c0; /* Border color and width */
+    padding: 5px; /* Padding around the list items */
+	border-radius: 15px;
+	font-family: &quot;Overpass&quot;, sans-serif; /* Set the desired font-family */
+	font-weight:bold;
+	font-size:16px;
+}
+
+QListWidget::item {
+    background-color: rgb(245, 245, 245); /* Background color of each list item */
+    padding: 5px; /* Padding inside each list item */
+    border-bottom: 1px solid #c0c0c0; /* Separator between list items */
+    border-radius: 15px; /* Border radius for rounded corners */
+	color: rgb(0, 0, 0);
+}
+
+
+QListWidget::item:selected {
+    background-color:#A0A0A0; /* Background color of selected item */
+    color: #ffffff; /* Text color of selected item */
+	border-radius: 10px;
+}
+
+QListWidget::item:hover {
+    background-color: #e0e0e0; /* Background color when hovering over an item */
+}
+</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="3" column="0">
+        <widget class="Line" name="line_2">
+         <property name="styleSheet">
+          <string notr="true">/* Line style */
+
+  /* Set the width of the line */
+  width: 20px;
+
+  /* Set the height of the line */
+  height: 5px;
+
+  /* Set the background color of the line */
+  background-color: rgb(193, 193, 193);
+
+  /* Set the border of the line */
+  border: 10px;
+
+  /* Set the border radius of the line */
+  border-radius:5px;
+
+
+
+</string>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Overpass Black</family>
+             <pointsize>16</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Seleced Graph</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="graphSelection">
+           <property name="maximumSize">
+            <size>
+             <width>145</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QComboBox {
+    border: 1px solid #565656; /* Border color for the combobox */
+    border-radius: 10px;
+    padding: 2px 18px 2px 8px; /* Adjust padding as needed */
+    background-color: rgb(3, 3, 3); /* Background color of the combobox */
+    color: #FFFFFF; /* Text color */
+    selection-background-color: #2A2A2A; /* Background color when an item is selected */
+	font-family: &quot;Overpass&quot;, sans-serif; /* Set the desired font-family */
+	font-weight:bold;
+	font-size:16px;
+}
+
+QComboBox:hover {
+    border: 1px solid rgb(127, 127, 127); /* Border color on hover */
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox::down-arrow {
+	
+	image: url(NewIcons/arrow-drop-down.png);
+    width: 30px;
+    height: 30px;
+	margin-right: 15px; /* Adjust the margin-right to move the arrow to the left */
+}
+
+QComboBox::down-arrow:hover {
+	
+	image: url(NewIcons/arrow-drop-down.png);
+}
+
+QComboBox::indicator {
+    width: 0;
+    border: none;
+    margin-right: 6px; /* Adjust as needed */
+}
+
+QComboBox::item {
+    padding: 8px;
+    background-color: #363636; /* Background color of each item */
+}
+
+QComboBox::item:selected {
+    background-color: rgb(42, 42, 42); /* Background color of the selected item */
+}
+
+QComboBox::item:hover {
+    background-color: #2A2A2A; /* Background color on item hover */
+}
+
+</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Graph 1</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Graph 2</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Linked</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,2,0">
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Overpass Black</family>
+          <pointsize>16</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Graph 1</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PlotWidget" name="graph1" native="true">
+        <property name="styleSheet">
+         <string notr="true">QWidget{
+background-color:white;
+border-radius:30px;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="0,2,0">
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_7">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>1000</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+background-color:white;
+border-radius:20px;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5" columnstretch="1,1,1,1,1">
+           <property name="horizontalSpacing">
+            <number>6</number>
+           </property>
+           <property name="verticalSpacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QComboBox" name="channelsGraph1">
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QComboBox {
+    border: 1px solid #565656; /* Border color for the combobox */
+    border-radius: 10px;
+    padding: 2px 18px 2px 8px; /* Adjust padding as needed */
+    background-color: rgb(3, 3, 3); /* Background color of the combobox */
+    color: #FFFFFF; /* Text color */
+    selection-background-color: #2A2A2A; /* Background color when an item is selected */
+	font-family: &quot;Overpass&quot;, sans-serif; /* Set the desired font-family */
+	font-weight:bold;
+	font-size:16px;
+}
+
+QComboBox:hover {
+    border: 1px solid rgb(127, 127, 127); /* Border color on hover */
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox::down-arrow {
+	
+	image: url(NewIcons/arrow-drop-down.png);
+    width: 30px;
+    height: 30px;
+	margin-right: 15px; /* Adjust the margin-right to move the arrow to the left */
+}
+
+QComboBox::down-arrow:hover {
+	
+	image: url(NewIcons/arrow-drop-down.png);
+}
+
+QComboBox::indicator {
+    width: 0;
+    border: none;
+    margin-right: 6px; /* Adjust as needed */
+}
+
+QComboBox::item {
+    padding: 8px;
+    background-color: #363636; /* Background color of each item */
+}
+
+QComboBox::item:selected {
+    background-color: rgb(42, 42, 42); /* Background color of the selected item */
+}
+
+QComboBox::item:hover {
+    background-color: #2A2A2A; /* Background color on item hover */
+}
+
+</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="addLabelGraph1">
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    border: 2px solid black; /* Border color for the line edit */
+    border-radius: 10px;
+    padding: 6px;
+    background-color: white; /* Background color of the line edit */
+    color: rgb(0, 0, 0); /* Text color */
+    selection-background-color: #f59352; /* Background color when text is selected */
+}
+
+QLineEdit:hover {
+    border: 1px solid #7F7F7F; /* Border color on hover */
+}
+
+QLineEdit:focus {
+    border: 2px solid#f59352;; /* Border color when line edit is focused */
+}
+
+QLineEdit::placeholder {
+    color: rgb(94, 94, 94); /* Placeholder text color */
+}
+
+QLineEdit::hover:placeholder {
+    color: rgb(0, 0, 0); /* Placeholder text color on hover */
+}</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+             <property name="placeholderText">
+              <string>Add Label</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="transferButtonGraph1_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>130</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>-apple-system</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: #f59352;
+border-radius: 15px;
+color: #fff;
+cursor: pointer;
+font-family: -apple-system,system-ui,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Ubuntu,sans-serif;
+font-size: 100%;
+height: 30px;
+line-height: 1.15;
+outline: none;
+padding: 3 10px;
+text-align: center;
+width: 30px; /* Reduced width to 200 pixels */
+}
+QPushButton:hover{
+background-color: rgb(227, 134, 76);
+}
+QPushButton:pressed{
+background-color: rgb(175, 103, 58);
+}</string>
+             </property>
+             <property name="text">
+              <string>Transfer</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>NewIcons/transfer-vertical-svgrepo-com.png</normaloff>NewIcons/transfer-vertical-svgrepo-com.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <property name="autoDefault">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="deleteButtonGraph1">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>110</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>-apple-system</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: #f59352;
+border-radius: 15px;
+color: #fff;
+cursor: pointer;
+font-family: -apple-system,system-ui,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Ubuntu,sans-serif;
+font-size: 100%;
+height: 30px;
+line-height: 1.15;
+outline: none;
+padding: 3 10px;
+text-align: center;
+width: 30px; /* Reduced width to 200 pixels */
+}
+QPushButton:hover{
+background-color: rgb(227, 134, 76);
+}
+QPushButton:pressed{
+background-color: rgb(175, 103, 58);
+}</string>
+             </property>
+             <property name="text">
+              <string>Delete</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>Icons/delete-svgrepo-com.svg</normaloff>Icons/delete-svgrepo-com.svg</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <property name="autoDefault">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QPushButton" name="colorButtonGraph1">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>110</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>-apple-system</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: #f59352;
+border-radius: 15px;
+color: #fff;
+cursor: pointer;
+font-family: -apple-system,system-ui,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Ubuntu,sans-serif;
+font-size: 100%;
+height: 30px;
+line-height: 1.15;
+outline: none;
+padding: 3 10px;
+text-align: center;
+width: 30px; /* Reduced width to 200 pixels */
+}
+QPushButton:hover{
+background-color: rgb(227, 134, 76);
+}
+QPushButton:pressed{
+background-color: rgb(175, 103, 58);
+}</string>
+             </property>
+             <property name="text">
+              <string>Color</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>Icons/color-palette-svgrepo-com.svg</normaloff>Icons/color-palette-svgrepo-com.svg</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <property name="autoDefault">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item row="2" column="1">
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="Line" name="line_3">
+        <property name="styleSheet">
+         <string notr="true">/* Line style */
+
+  /* Set the width of the line */
+  width: 20px;
+
+  /* Set the height of the line */
+  height: 5px;
+
+  /* Set the background color of the line */
+  background-color: rgb(193, 193, 193);
+
+  /* Set the border of the line */
+  border: 10px;
+
+  /* Set the border radius of the line */
+  border-radius:5px;
+
+
+
+</string>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="linkButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>-apple-system</family>
+          <pointsize>14</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{
+background-color: #FF4742;
+border-radius: 15px;
+color: #fff;
+cursor: pointer;
+font-family: -apple-system,system-ui,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Ubuntu,sans-serif;
+font-size: 100%;
+height: 30px;
+line-height: 1.15;
+outline: none;
+padding: 3 10px;
+text-align: center;
+width: 30px; /* Reduced width to 200 pixels */
+}
+QPushButton:hover{
+background-color:rgb(225, 61, 58);
+}
+QPushButton:pressed{
+background-color: rgb(180, 49, 47);
+}</string>
+        </property>
+        <property name="text">
+         <string>Link</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>Icons/link-square-svgrepo-com.svg</normaloff>Icons/link-square-svgrepo-com.svg</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="Line" name="line_6">
+        <property name="styleSheet">
+         <string notr="true">/* Line style */
+
+  /* Set the width of the line */
+  width: 20px;
+
+  /* Set the height of the line */
+  height: 5px;
+
+  /* Set the background color of the line */
+  background-color: rgb(193, 193, 193);
+
+  /* Set the border of the line */
+  border: 10px;
+
+  /* Set the border radius of the line */
+  border-radius:5px;
+
+
+
+</string>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="3" column="1">
+     <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,2,0">
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Overpass Black</family>
+          <pointsize>16</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Graph 2</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="PlotWidget" name="graph2" native="true">
+        <property name="styleSheet">
+         <string notr="true">QWidget{
+background-color:white;
+border-radius:30px;
+}</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="0,2,0">
+        <item>
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_8">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>1000</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QFrame{
+background-color:white;
+border-radius:20px;
+}</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_6" columnstretch="1,1,1,1,1">
+           <property name="horizontalSpacing">
+            <number>6</number>
+           </property>
+           <property name="verticalSpacing">
+            <number>0</number>
+           </property>
+           <item row="0" column="0">
+            <widget class="QComboBox" name="channelsGraph2">
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QComboBox {
+    border: 1px solid #565656; /* Border color for the combobox */
+    border-radius: 10px;
+    padding: 2px 18px 2px 8px; /* Adjust padding as needed */
+    background-color: rgb(3, 3, 3); /* Background color of the combobox */
+    color: #FFFFFF; /* Text color */
+    selection-background-color: #2A2A2A; /* Background color when an item is selected */
+	font-family: &quot;Overpass&quot;, sans-serif; /* Set the desired font-family */
+	font-weight:bold;
+	font-size:16px;
+}
+
+QComboBox:hover {
+    border: 1px solid rgb(127, 127, 127); /* Border color on hover */
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox::down-arrow {
+	
+	image: url(NewIcons/arrow-drop-down.png);
+    width: 30px;
+    height: 30px;
+	margin-right: 15px; /* Adjust the margin-right to move the arrow to the left */
+}
+
+QComboBox::down-arrow:hover {
+	
+	image: url(NewIcons/arrow-drop-down.png);
+}
+
+QComboBox::indicator {
+    width: 0;
+    border: none;
+    margin-right: 6px; /* Adjust as needed */
+}
+
+QComboBox::item {
+    padding: 8px;
+    background-color: #363636; /* Background color of each item */
+}
+
+QComboBox::item:selected {
+    background-color: rgb(42, 42, 42); /* Background color of the selected item */
+}
+
+QComboBox::item:hover {
+    background-color: #2A2A2A; /* Background color on item hover */
+}
+
+</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="addLabelGraph2">
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit {
+    border: 2px solid black; /* Border color for the line edit */
+    border-radius: 10px;
+    padding: 6px;
+    background-color: white; /* Background color of the line edit */
+    color: rgb(0, 0, 0); /* Text color */
+    selection-background-color: #f59352; /* Background color when text is selected */
+}
+
+QLineEdit:hover {
+    border: 1px solid #7F7F7F; /* Border color on hover */
+}
+
+QLineEdit:focus {
+    border: 2px solid#f59352;; /* Border color when line edit is focused */
+}
+
+QLineEdit::placeholder {
+    color: rgb(94, 94, 94); /* Placeholder text color */
+}
+
+QLineEdit::hover:placeholder {
+    color: rgb(0, 0, 0); /* Placeholder text color on hover */
+}</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+             <property name="placeholderText">
+              <string>Add Label</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <widget class="QPushButton" name="transferButtonGraph2_1">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>130</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>-apple-system</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: #f59352;
+border-radius: 15px;
+color: #fff;
+cursor: pointer;
+font-family: -apple-system,system-ui,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Ubuntu,sans-serif;
+font-size: 100%;
+height: 30px;
+line-height: 1.15;
+outline: none;
+padding: 3 10px;
+text-align: center;
+width: 30px; /* Reduced width to 200 pixels */
+}
+QPushButton:hover{
+background-color: rgb(227, 134, 76);
+}
+QPushButton:pressed{
+background-color: rgb(175, 103, 58);
+}</string>
+             </property>
+             <property name="text">
+              <string>Transfer</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>NewIcons/transfer-vertical-svgrepo-com.png</normaloff>NewIcons/transfer-vertical-svgrepo-com.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <property name="autoDefault">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="3">
+            <widget class="QPushButton" name="deleteButtonGraph2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>110</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>-apple-system</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: #f59352;
+border-radius: 15px;
+color: #fff;
+cursor: pointer;
+font-family: -apple-system,system-ui,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Ubuntu,sans-serif;
+font-size: 100%;
+height: 30px;
+line-height: 1.15;
+outline: none;
+padding: 3 10px;
+text-align: center;
+width: 30px; /* Reduced width to 200 pixels */
+}
+QPushButton:hover{
+background-color: rgb(227, 134, 76);
+}
+QPushButton:pressed{
+background-color: rgb(175, 103, 58);
+}</string>
+             </property>
+             <property name="text">
+              <string>Delete</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>Icons/delete-svgrepo-com.svg</normaloff>Icons/delete-svgrepo-com.svg</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <property name="autoDefault">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="4">
+            <widget class="QPushButton" name="colorButtonGraph2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>110</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>-apple-system</family>
+               <pointsize>14</pointsize>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton{
+background-color: #f59352;
+border-radius: 15px;
+color: #fff;
+cursor: pointer;
+font-family: -apple-system,system-ui,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Ubuntu,sans-serif;
+font-size: 100%;
+height: 30px;
+line-height: 1.15;
+outline: none;
+padding: 3 10px;
+text-align: center;
+width: 30px; /* Reduced width to 200 pixels */
+}
+QPushButton:hover{
+background-color: rgb(227, 134, 76);
+}
+QPushButton:pressed{
+background-color: rgb(175, 103, 58);
+}</string>
+             </property>
+             <property name="text">
+              <string>Color</string>
+             </property>
+             <property name="icon">
+              <iconset>
+               <normaloff>Icons/color-palette-svgrepo-com.svg</normaloff>Icons/color-palette-svgrepo-com.svg</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>25</width>
+               <height>25</height>
+              </size>
+             </property>
+             <property name="checkable">
+              <bool>false</bool>
+             </property>
+             <property name="autoDefault">
+              <bool>false</bool>
+             </property>
+             <property name="flat">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_8">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1182</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlotWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">pyqtgraph</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="resourrces.qrc"/>
+  <include location="qresources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
