@@ -1,6 +1,6 @@
 # Multi-Port, Multi-Channel Signal Viewer
 
-This desktop application allows you to browse and open signal files, display them in two main identical graphs, and manipulate them using UI elements. The application also supports cine mode and exporting reports to PDF.
+This desktop application allows you to browse and open signal files, display them in two main identical graphs and manipulate them using UI elements. The application also supports cine mode and exporting reports to PDF.
 
 ## **Features:**
 
@@ -18,7 +18,7 @@ This desktop application allows you to browse and open signal files, display the
 1. To open a signal file, click on the "Open File" button and select the desired file.
 2. To display the signal in cine mode, click on the "Play" button.
 3. To manipulate the signal, use the UI elements provided at the side of the window.
-4. To export a report, click on the "Pdf report" button and select the desired destination.
+4. To export a report, click on the "PDF report" button and select the desired destination.
 
 ## **Examples:**
 
@@ -28,13 +28,14 @@ The following are some examples of how to use the application:
 * To compare two ECG signals, open the two signal files and display them in the two graphs. You can then link the two graphs so that they display the same time frames, signal speed, and viewport.
   
 ## Demo
-### Part1:
+### Part1: Light mode
 
 
-https://github.com/MohamedMandour10/Vital-Signals-Multichannel-Viewer/assets/115044826/d7bee388-fb1d-48eb-82e1-ebd08e3630c4
+https://github.com/MohamedMandour10/Vital-Signals-Multichannel-Viewer/assets/115044826/4e5469e7-2930-45eb-bf2b-298b68f7a2e0
 
 
-### Part2:
+
+### Part2: Dark mode
 
 
 https://github.com/MohamedMandour10/Vital-Signals-Multichannel-Viewer/assets/115044826/05d37c71-8250-4275-81c5-df44d84b6afe
