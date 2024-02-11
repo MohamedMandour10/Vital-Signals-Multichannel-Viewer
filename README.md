@@ -1,4 +1,5 @@
 # Multi-Port, Multi-Channel Signal Viewer
+![Demo of UI](https://github.com/MohamedMandour10/Vital-Signals-Multichannel-Viewer/assets/115044826/729f975e-32c7-43f4-b64a-a646e654a8ff)
 
 This desktop application allows you to browse and open signal files, display them in two main identical graphs and manipulate them using UI elements. The application also supports cine mode and exporting reports to PDF.
 
