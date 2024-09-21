@@ -51,9 +51,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def init_ui(self):
         # Load the UI Page
-        self.ui = uic.loadUi('Lightmode.ui', self)
+        self.ui = uic.loadUi('ui/Lightmode.ui', self)
         self.setWindowTitle("Multi-Channel Signal Viewer")
-        self.setWindowIcon(QIcon("Icons\ECG.png"))
+        self.setWindowIcon(QIcon("assets/Icons/ECG.png"))
         self.ui.graph1.setBackground("transparent")
         self.ui.graph2.setBackground("transparent")
         self.set_icon("NewIcons\circle-play-svgrepo-com (1).png")

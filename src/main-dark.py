@@ -53,9 +53,9 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def init_ui(self):
         # Load the UI Page
-        self.ui = uic.loadUi('mainwindow.ui', self)
+        self.ui = uic.loadUi('ui/mainwindow.ui', self)
         self.setWindowTitle("Multi-Channel Signal Viewer")
-        self.setWindowIcon(QIcon("Icons\ECG.png"))
+        self.setWindowIcon(QIcon("assets/Icons/ECG.png"))
         self.lookup = {"graph1": self.graph1, "graph2": self.graph2}
         self.current_graph = self.graph1  # default value
         self.current_graph.clear()
