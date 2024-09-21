@@ -27,6 +27,26 @@ The following are some examples of how to use the application:
 
 * To view an ECG signal, open an ECG signal file and click on the "Play" button.
 * To compare two ECG signals, open the two signal files and display them in the two graphs. You can then link the two graphs so that they display the same time frames, signal speed, and viewport.
+
+## **structure:**
+```
+
+├── src/
+│   ├── main-dark.py
+│   └── main-light.py
+├── ui/
+│   ├── Lightmode.ui
+│   ├── mainwindow.ui
+│   └── resources.qrc 
+├── assets/
+│   ├── Icons/
+│   └── LOGO/
+├── data/
+│   └── DataSets/
+├── README.md
+├── requirements.txt
+└── .gitignore
+```
   
 ## Demo
 ### Part1: Light mode
